@@ -15,7 +15,7 @@
         </div>
 
         <div class="row" style="padding-bottom: 20px;">
-            <div class="medium primary btn"><a href="#">Add Order</a></div>
+            <div class="medium primary btn"><a href="create">Add Order</a></div>
         </div>
 
         <div class="row">
