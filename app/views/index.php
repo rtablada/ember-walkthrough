@@ -11,7 +11,10 @@
 
     <div class="content">
         <div class="row">
-            <h1>My Contacts</h1>
+            <h1>Contact Manager</h1>
+        </div>
+        <div class="row">
+            <h2>My Contacts</h2>
         </div>
 
         <div class="row" style="padding-bottom: 20px;">
