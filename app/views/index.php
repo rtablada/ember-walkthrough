@@ -6,6 +6,7 @@
 
     <title>Contacts</title>
     <link rel="stylesheet" href="css/gumby.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -27,7 +28,7 @@
                     <th>Date</th>
                     <th>Items</th>
                     <th>Amount</th>
-                    <th>Remove</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <tr>
@@ -40,7 +41,7 @@
                     </tr>
                     <tr>
                         <td>May 10, 2013</td>
-                        <td>Donaghy</td>
+                        <td>2</td>
                         <td>$50</td>
                         <td>
                             <button class="destroy"><i class="icon-cancel"></i></button>

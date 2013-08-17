@@ -11,7 +11,7 @@ class CreateOrdersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('orders', function()
+		Schema::create('orders', function($table)
 		{
 			$table->increments('id');
 			$table->date('order_date');
