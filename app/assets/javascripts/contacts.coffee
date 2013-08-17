@@ -1,0 +1,1 @@
+Contacts = Ember.Application.create();
