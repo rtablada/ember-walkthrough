@@ -4,67 +4,82 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Contacts</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="css/gumby.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<script type="text/x-handlebars" data-template-name="orders">
     <div class="content">
         <div class="row">
-            <h1>Contact Manager</h1>
-        </div>
-        <div class="row">
-            <h2>My Contacts</h2>
+            <h1>Order Manager</h1>
         </div>
 
-        <div class="row" style="padding-bottom: 20px;">
-            <div class="medium primary btn"><a href="create">Add Order</a></div>
-        </div>
+        {{outlet}}
+    </div>
+    <div class="row">
+        <h2>New Order</h2>
+    </div>
+    <div class="row">
+        <form action="#">
+            <div class="field">
+                {{view Ember.TextField class="text input" id="new-date" placeholder="Date?" valueBinding="newOrderDate"}}
+            </div>
+            <div class="field">
+                {{view Ember.TextField class="text input" id="new-items" placeholder="Items" valueBinding="newItems"}}
+            </div>
+            <div class="field">
+                {{view Ember.TextField class="text input" id="new-amount" placeholder="Amount" valueBinding="newAmount"}}
+            </div>
+        </form>
+    </div>
 
-        <div class="row">
-            <table>
-                <thead>
-                    <th>Date</th>
-                    <th>Items</th>
-                    <th>Amount</th>
-                    <th></th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Jan 01, 2013</td>
-                        <td>3</td>
-                        <td>$30</td>
-                        <td>
-                            <button class="destroy"><i class="icon-cancel"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>May 10, 2013</td>
-                        <td>2</td>
-                        <td>$50</td>
-                        <td>
-                            <button class="destroy"><i class="icon-cancel"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>June 20, 2013</td>
-                        <td>1</td>
-                        <td>$100</td>
-                        <td>
-                            <button class="destroy"><i class="icon-cancel"></i></button>
-                        </td>
-                    </tr>
-                    <tr class="total">
-                        <td></td>
-                        <td></td>
-                        <td style="font-weight:bold">$180</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="medium primary btn">
+            <button id="submit" {{action "createOrder"}}>Add Order</button>
+        </div>
+        <div class="medium info btn"><a href="/">Cancel</a></div>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="orders/index">
+    <div class="row">
+        <h2>My Orders</h2>
+    </div>
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="medium primary btn">
+            {{#linkTo 'orders.new'}}Add Order{{/linkTo}}
         </div>
     </div>
+
+    <div class="row">
+        <table>
+            <thead>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Amount</th>
+                <th></th>
+            </thead>
+            <tbody>
+                {{#each controller}}
+                    <tr>
+                        <td>{{date orderDate}}</td>
+                        <td>{{items}}</td>
+                        <td>${{price}}</td>
+                        <td>
+                            <button class="destroy"><i class="icon-cancel"></i></button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="orders/new">
+
+</script>
 
     <?= javascript_include_tag() ?>
 </body>

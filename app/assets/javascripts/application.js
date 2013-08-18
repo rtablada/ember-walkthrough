@@ -13,6 +13,8 @@
 //= require gumby
 //= require handlebars
 //= require ember
+//= require ember-data
+//= require moment
 //
-//= require contacts
+//= require orders
 //= require_tree .

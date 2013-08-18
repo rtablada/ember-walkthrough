@@ -20,3 +20,5 @@ Route::get('create', function()
 {
 	return View::make('create');
 });
+
+Route::resource('api/orders', 'OrdersController');

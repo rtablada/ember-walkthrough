@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration {
 			$table->increments('id');
 			$table->date('order_date');
 			$table->integer('items');
-			$table->decimal('price', 5, 2);
+			$table->decimal('price', 10, 2);
 		});
 	}
 
