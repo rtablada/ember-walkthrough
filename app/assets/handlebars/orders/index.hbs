@@ -1,0 +1,37 @@
+<div class="row">
+    <h2>My Orders</h2>
+</div>
+<div class="row" style="padding-bottom: 20px;">
+    <div class="medium primary btn">
+        {{#linkTo 'orders.new'}}Add Order{{/linkTo}}
+    </div>
+</div>
+
+<div class="row">
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>Items</th>
+            <th>Amount</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {{#each controller}}
+                <tr>
+                    <td>{{date orderDate}}</td>
+                    <td>{{items}}</td>
+                    <td>{{currency price}}</td>
+                    <td>
+                        <button class="destroy"><i class="icon-cancel"></i></button>
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{currency total}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

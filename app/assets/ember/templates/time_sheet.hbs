@@ -1,0 +1,13 @@
+<h2>Time sheet</h2>
+
+<p>
+  <b>Description:</b> {{ description }}
+</p>
+
+<p>
+  <b>Minutes:</b> {{ minutes }}
+</p>
+
+{{#linkTo "time_sheets"}}←All Time sheets{{/linkTo}}
+{{#linkTo "edit_time_sheet" model}}Edit{{/linkTo}}
+<a href="#" {{action "destroy"}}>Destroy</a>

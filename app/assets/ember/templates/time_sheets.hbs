@@ -1,0 +1,21 @@
+<h2>Time sheets</h2>
+
+{{#linkTo "new_time_sheet"}}New Time sheet{{/linkTo}}
+
+<table>
+  <thead>
+    <th>description</th>
+    <th>minutes</th>
+  </thead>
+  <tbody>
+    {{#each time_sheet in controller}}
+    <tr>
+      <td>{{ time_sheet.description }}</td>
+      <td>{{ time_sheet.minutes }}</td>
+      <td>{{#linkTo "time_sheet" time_sheet }}view{{/linkTo}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+

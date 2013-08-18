@@ -1,0 +1,12 @@
+{
+  "name": "Wardrobe",
+  "version": "0.0.2",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-coffee": "~0.4.0",
+    "grunt-ember-script": "*",
+    "grunt-ember-templates": "*"
+  }
+}

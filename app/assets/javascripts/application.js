@@ -18,4 +18,5 @@
 //= require accounting
 //
 //= require orders
-//= require_tree .
+//= require templates
+

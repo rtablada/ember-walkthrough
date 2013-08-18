@@ -1,0 +1,23 @@
+<div class="row">
+    <h2>New Order</h2>
+</div>
+<div class="row">
+    <form action="#">
+        <div class="field">
+            {{view Ember.TextField class="text input" id="new-date" placeholder="Date?" valueBinding="newOrderDate"}}
+        </div>
+        <div class="field">
+            {{view Ember.TextField class="text input" id="new-items" placeholder="Items" valueBinding="newItems"}}
+        </div>
+        <div class="field">
+            {{view Ember.TextField class="text input" id="new-amount" placeholder="Amount" valueBinding="newAmount"}}
+        </div>
+    </form>
+</div>
+
+<div class="row" style="padding-bottom: 20px;">
+    <div class="medium primary btn">
+        <button id="submit" {{action createOrder target="controller"}}>Add Order</button>
+    </div>
+    <div class="medium info btn"><a href="/">Cancel</a></div>
+</div>
