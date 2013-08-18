@@ -15,6 +15,7 @@
 //= require ember
 //= require ember-data
 //= require moment
+//= require accounting
 //
 //= require orders
 //= require_tree .

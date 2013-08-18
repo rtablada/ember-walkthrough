@@ -1,4 +1,4 @@
-Orders.OrdersController = Ember.ObjectController.extend
+Orders.OrdersController = Ember.ArrayController.extend
 	createOrder: ->
 		orderDate = moment(@get 'newOrderDate')
 		items = @get 'newItems'

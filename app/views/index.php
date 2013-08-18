@@ -66,12 +66,18 @@
                     <tr>
                         <td>{{date orderDate}}</td>
                         <td>{{items}}</td>
-                        <td>${{price}}</td>
+                        <td>{{currency price}}</td>
                         <td>
                             <button class="destroy"><i class="icon-cancel"></i></button>
                         </td>
                     </tr>
                 {{/each}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>{{currency total}}</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>

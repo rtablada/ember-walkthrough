@@ -2,6 +2,8 @@ window.Orders = Ember.Application.create();
 
 Ember.Handlebars.helper 'date', (value, options)  ->
 	if typeof value == 'string'
-		return moment(value).format('DD MMMM YYYY')
-	else
-		return value.format('DD MMMM YYYY')
+		return value = moment(value)
+	return value.format 'DD MMMM YYYY'
+
+Ember.Handlebars.helper 'currency', (value, options) ->
+	return accounting.formatMoney value
