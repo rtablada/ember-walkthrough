@@ -1,3 +1,40 @@
+Ember.TEMPLATES["items/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  
+  data.buffer.push("Cancel");
+  }
+
+  data.buffer.push("<div class=\"row\">\n    <h2>New Item</h2>\n</div>\n<form ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "newItem", {hash:{
+    'on': ("submit")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n    <div class=\"row\">\n        <div class=\"field\">\n            ");
+  hashContexts = {'class': depth0,'id': depth0,'placeholder': depth0,'valueBinding': depth0};
+  hashTypes = {'class': "STRING",'id': "STRING",'placeholder': "STRING",'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
+    'class': ("text input"),
+    'id': ("new-name"),
+    'placeholder': ("Name"),
+    'valueBinding': ("newItemName")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n        </div>\n    </div>\n\n    <div class=\"row\" style=\"padding-bottom: 20px;\">\n        <div class=\"medium primary btn\">\n            <button id=\"submit\" type=\"submit\">Add Order</button>\n        </div>\n        <div class=\"medium info btn\">");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "orders.show", "order.id", options) : helperMissing.call(depth0, "linkTo", "orders.show", "order.id", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("</div>\n    </div>\n</form>");
+  return buffer;
+  
+});
+
 Ember.TEMPLATES["orders"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -87,23 +124,20 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', hashContexts, hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"row\">\n    <h2>New Order</h2>\n</div>\n<div class=\"row\">\n    <form action=\"#\">\n        <div class=\"field\">\n            ");
+  data.buffer.push("<div class=\"row\">\n    <h2>New Order</h2>\n</div>\n<form ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "newItem", {hash:{
+    'on': ("submit")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n    <div class=\"row\">\n        <div class=\"field\">\n            ");
   hashContexts = {'class': depth0,'id': depth0,'placeholder': depth0,'valueBinding': depth0};
   hashTypes = {'class': "STRING",'id': "STRING",'placeholder': "STRING",'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
     'class': ("text input"),
     'id': ("new-date"),
-    'placeholder': ("Date?"),
+    'placeholder': ("Date"),
     'valueBinding': ("newOrderDate")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n        </div>\n        <div class=\"field\">\n            ");
-  hashContexts = {'class': depth0,'id': depth0,'placeholder': depth0,'valueBinding': depth0};
-  hashTypes = {'class': "STRING",'id': "STRING",'placeholder': "STRING",'valueBinding': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'class': ("text input"),
-    'id': ("new-items"),
-    'placeholder': ("Items"),
-    'valueBinding': ("newItems")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n        </div>\n        <div class=\"field\">\n            ");
   hashContexts = {'class': depth0,'id': depth0,'placeholder': depth0,'valueBinding': depth0};
@@ -114,13 +148,13 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
     'placeholder': ("Amount"),
     'valueBinding': ("newAmount")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n        </div>\n    </form>\n</div>\n\n<div class=\"row\" style=\"padding-bottom: 20px;\">\n    <div class=\"medium primary btn\">\n        <button id=\"submit\" ");
+  data.buffer.push("\n        </div>\n    </div>\n\n    <div class=\"row\" style=\"padding-bottom: 20px;\">\n        <div class=\"medium primary btn\">\n            <button id=\"submit\" ");
   hashContexts = {'target': depth0};
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "createOrder", {hash:{
     'target': ("controller")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Add Order</button>\n    </div>\n    <div class=\"medium info btn\"><a href=\"/\">Cancel</a></div>\n</div>");
+  data.buffer.push(">Add Order</button>\n        </div>\n        <div class=\"medium info btn\"><a href=\"/\">Cancel</a></div>\n    </div>\n</form>");
   return buffer;
   
 });

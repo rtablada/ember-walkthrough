@@ -32,7 +32,7 @@ class EmberAPIController extends BaseController {
 	public function store()
 	{
 		$input = Input::json();
-		$model = $this->model->create($input->get($modelName));
+		$model = $this->model->create($input->get($this->modelName));
 		return $model->toEmberArray();
 	}
 
@@ -60,7 +60,7 @@ class EmberAPIController extends BaseController {
 		$model = $this->model->findOrFail($id);
 
 		$input = Input::json();
-		$model->update($input->get($modelName));
+		$model->update($input->get($this->modelName));
 
 		return $model->toEmberArray();
 	}

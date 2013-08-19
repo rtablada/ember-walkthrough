@@ -29,6 +29,16 @@ set$(Orders, 'OrdersIndexRoute', Ember.Route.extend({
     return get$(Orders, 'Order').find();
   }
 }));
+set$(Orders, 'ItemsNewRoute', Ember.Route.extend({
+  model: function (params) {
+    return { id: get$(params, 'order_id') };
+  }
+}));
+set$(Orders, 'ItemsNewController', Ember.ObjectController.extend({
+  orderId: function () {
+    return get$(get$(this, 'model'), 'order').get('id');
+  }.property()
+}));
 set$(Orders, 'OrderController', Ember.ObjectController.extend({
   itemsCount: function () {
     return get$(this, 'items').get('length');
@@ -80,7 +90,7 @@ set$(Orders, 'OrdersNewController', Ember.ArrayController.extend({
       price: price
     });
     order.save();
-    return this.transitionToRouteW('orders');
+    return this.transitionToRoute('orders');
   }
 }));
 set$(Orders, 'Item', get$(DS, 'Model').extend({

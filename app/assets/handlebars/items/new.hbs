@@ -1,0 +1,17 @@
+<div class="row">
+    <h2>New Item</h2>
+</div>
+<form {{action newItem on='submit'}}>
+    <div class="row">
+        <div class="field">
+            {{view Ember.TextField class="text input" id="new-name" placeholder="Name" valueBinding="newItemName"}}
+        </div>
+    </div>
+
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="medium primary btn">
+            <button id="submit" type="submit">Add Order</button>
+        </div>
+        <div class="medium info btn">{{#linkTo 'orders.show' order.id}}Cancel{{/linkTo}}</div>
+    </div>
+</form>

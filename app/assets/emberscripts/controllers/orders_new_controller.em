@@ -11,4 +11,4 @@ class Orders.OrdersNewController extends Ember.ArrayController
 
 		order.save()
 
-		@transitionToRouteW 'orders'
+		@transitionToRoute 'orders'

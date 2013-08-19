@@ -12,3 +12,9 @@ class Orders.OrdersRoute extends Ember.Route
 class Orders.OrdersIndexRoute extends Ember.Route
   model: ->
     return Orders.Order.find()
+
+class Orders.ItemsNewRoute extends Ember.Route
+  model: (params) ->
+    return {
+      id: params.order_id
+    }
