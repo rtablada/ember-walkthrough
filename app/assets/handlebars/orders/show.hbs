@@ -1,0 +1,25 @@
+<div class="row">
+    <h2>Order From - {{date orderDate}}</h2>
+</div>
+<div class="row" style="padding-bottom: 20px;">
+    <div class="medium primary btn">
+        {{#linkTo 'items.new' this}}Add Item{{/linkTo}}
+    </div>
+</div>
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+            </tr>
+        </thead>
+        {{#each items}}
+        <tr>
+            <td>{{name}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<div class="row">
+    <div class="medium info btn">{{#linkTo 'orders.index'}}Go Back{{/linkTo}}</div>
+</div>

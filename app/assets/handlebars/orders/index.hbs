@@ -14,6 +14,7 @@
             <th>Items</th>
             <th>Amount</th>
             <th></th>
+            <th></th>
         </thead>
         <tbody>
             {{#each controller}}
@@ -21,6 +22,9 @@
                     <td>{{date orderDate}}</td>
                     <td>{{itemsCount}}</td>
                     <td>{{currency price}}</td>
+                    <td>
+                        {{#linkTo 'orders.show' this}}Details{{/linkTo}}
+                    </td>
                     <td>
                         <button class="destroy" {{action "delete"}}><i class="icon-cancel"></i></button>
                     </td>

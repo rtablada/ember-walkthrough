@@ -12,7 +12,11 @@ Ember.Handlebars.helper('currency', function (value, options) {
 });
 get$(Orders, 'Router').map(function () {
   return this.resource('orders', { path: '/' }, function () {
-    return this.route('new');
+    this.route('new');
+    this.route('show', { path: ':order_id' });
+    return this.resource('items', { path: ':order_id/items' }, function () {
+      return this.route('new');
+    });
   });
 });
 set$(Orders, 'OrdersRoute', Ember.Route.extend({
