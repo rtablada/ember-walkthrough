@@ -1,4 +1,4 @@
-Ember.TEMPLATES["items/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES["items"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
@@ -22,13 +22,13 @@ function program1(depth0,data) {
     'class': ("text input"),
     'id': ("new-name"),
     'placeholder': ("Name"),
-    'valueBinding': ("newItemName")
+    'valueBinding': ("name")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("\n        </div>\n    </div>\n\n    <div class=\"row\" style=\"padding-bottom: 20px;\">\n        <div class=\"medium primary btn\">\n            <button id=\"submit\" type=\"submit\">Add Order</button>\n        </div>\n        <div class=\"medium info btn\">");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "orders.show", "order.id", options) : helperMissing.call(depth0, "linkTo", "orders.show", "order.id", options));
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "orders.show", "order", options) : helperMissing.call(depth0, "linkTo", "orders.show", "order", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</div>\n    </div>\n</form>");
   return buffer;
@@ -196,7 +196,7 @@ function program5(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "items.new", "", options) : helperMissing.call(depth0, "linkTo", "items.new", "", options));
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "items", "", options) : helperMissing.call(depth0, "linkTo", "items", "", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n    </div>\n</div>\n<div class=\"row\">\n    <table>\n        <thead>\n            <tr>\n                <th>Item</th>\n            </tr>\n        </thead>\n        ");
   hashTypes = {};

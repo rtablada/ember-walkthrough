@@ -32,6 +32,7 @@ class EmberAPIController extends BaseController {
 	public function store()
 	{
 		$input = Input::json();
+
 		$model = $this->model->create($input->get($this->modelName));
 		return $model->toEmberArray();
 	}

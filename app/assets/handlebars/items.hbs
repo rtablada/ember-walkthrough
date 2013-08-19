@@ -4,7 +4,7 @@
 <form {{action newItem on='submit'}}>
     <div class="row">
         <div class="field">
-            {{view Ember.TextField class="text input" id="new-name" placeholder="Name" valueBinding="newItemName"}}
+            {{view Ember.TextField class="text input" id="new-name" placeholder="Name" valueBinding="name"}}
         </div>
     </div>
 
@@ -12,6 +12,6 @@
         <div class="medium primary btn">
             <button id="submit" type="submit">Add Order</button>
         </div>
-        <div class="medium info btn">{{#linkTo 'orders.show' order.id}}Cancel{{/linkTo}}</div>
+        <div class="medium info btn">{{#linkTo 'orders.show' order}}Cancel{{/linkTo}}</div>
     </div>
 </form>

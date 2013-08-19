@@ -14,9 +14,7 @@ get$(Orders, 'Router').map(function () {
   return this.resource('orders', { path: '/' }, function () {
     this.route('new');
     this.route('show', { path: ':order_id' });
-    return this.resource('items', { path: ':order_id/items' }, function () {
-      return this.route('new');
-    });
+    return this.resource('items', { path: ':order_id/items/new' });
   });
 });
 set$(Orders, 'OrdersRoute', Ember.Route.extend({
@@ -29,15 +27,17 @@ set$(Orders, 'OrdersIndexRoute', Ember.Route.extend({
     return get$(Orders, 'Order').find();
   }
 }));
-set$(Orders, 'ItemsNewRoute', Ember.Route.extend({
+set$(Orders, 'ItemsRoute', Ember.Route.extend({
   model: function (params) {
-    return { id: get$(params, 'order_id') };
+    return get$(Orders, 'Item').createRecord({ order: get$(Orders, 'Order').find(get$(params, 'order_id')) });
   }
 }));
-set$(Orders, 'ItemsNewController', Ember.ObjectController.extend({
-  orderId: function () {
-    return get$(get$(this, 'model'), 'order').get('id');
-  }.property()
+set$(Orders, 'ItemsController', Ember.ObjectController.extend({
+  newItem: function () {
+    get$(this, 'model').save();
+    get$(get$(get$(this, 'model'), 'order'), 'items').pushObject(get$(this, 'model'));
+    return this.transitionToRoute('orders.show', get$(get$(this, 'model'), 'order'));
+  }
 }));
 set$(Orders, 'OrderController', Ember.ObjectController.extend({
   itemsCount: function () {
