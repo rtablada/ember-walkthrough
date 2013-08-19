@@ -35,13 +35,17 @@ function program3(depth0,data) {
   data.buffer.push("</td>\n                    <td>");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "items", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "itemsCount", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   data.buffer.push("</td>\n                    <td>");
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.currency || depth0.currency),stack1 ? stack1.call(depth0, "price", options) : helperMissing.call(depth0, "currency", "price", options))));
-  data.buffer.push("</td>\n                    <td>\n                        <button class=\"destroy\"><i class=\"icon-cancel\"></i></button>\n                    </td>\n                </tr>\n            ");
+  data.buffer.push("</td>\n                    <td>\n                        <button class=\"destroy\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "delete", {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("><i class=\"icon-cancel\"></i></button>\n                    </td>\n                </tr>\n            ");
   return buffer;
   }
 

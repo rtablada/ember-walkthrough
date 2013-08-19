@@ -1,4 +1,5 @@
 class Orders.OrdersIndexController extends Ember.ArrayController
+	itemController: 'order'
 	total: ( ->
 		prices = @getEach('price')
 		sum = 0
@@ -7,3 +8,4 @@ class Orders.OrdersIndexController extends Ember.ArrayController
 
 		return sum
 	).property('@each')
+

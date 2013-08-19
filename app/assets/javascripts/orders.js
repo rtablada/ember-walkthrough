@@ -25,6 +25,17 @@ set$(Orders, 'OrdersIndexRoute', Ember.Route.extend({
     return get$(Orders, 'Order').find();
   }
 }));
+set$(Orders, 'OrderController', Ember.ObjectController.extend({
+  itemsCount: function () {
+    return get$(this, 'items').get('length');
+  }.property('items'),
+  'delete': function () {
+    var order;
+    order = get$(this, 'model');
+    order.deleteRecord();
+    return order.save();
+  }
+}));
 set$(Orders, 'OrdersController', Ember.ArrayController.extend({
   createOrder: function () {
     var items, order, orderDate, price;
@@ -41,6 +52,7 @@ set$(Orders, 'OrdersController', Ember.ArrayController.extend({
   }
 }));
 set$(Orders, 'OrdersIndexController', Ember.ArrayController.extend({
+  itemController: 'order',
   total: function () {
     var price, prices, sum;
     prices = this.getEach('price');
@@ -64,12 +76,16 @@ set$(Orders, 'OrdersNewController', Ember.ArrayController.extend({
       price: price
     });
     order.save();
-    return this.transitionToRoute('orders');
+    return this.transitionToRouteW('orders');
   }
+}));
+set$(Orders, 'Item', get$(DS, 'Model').extend({
+  name: DS.attr('string'),
+  order: DS.belongsTo('Orders.Order')
 }));
 set$(Orders, 'Order', get$(DS, 'Model').extend({
   orderDate: DS.attr('sqldate'),
-  items: DS.attr('number'),
+  items: DS.hasMany('Orders.Item'),
   price: DS.attr('number')
 }));
 get$(DS, 'RESTAdapter').registerTransform('sqldate', {

@@ -22,3 +22,4 @@ Route::get('create', function()
 });
 
 Route::resource('api/orders', 'OrdersController');
+Route::resource('api/items', 'ItemsController');

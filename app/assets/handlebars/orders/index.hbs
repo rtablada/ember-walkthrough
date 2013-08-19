@@ -19,10 +19,10 @@
             {{#each controller}}
                 <tr>
                     <td>{{date orderDate}}</td>
-                    <td>{{items}}</td>
+                    <td>{{itemsCount}}</td>
                     <td>{{currency price}}</td>
                     <td>
-                        <button class="destroy"><i class="icon-cancel"></i></button>
+                        <button class="destroy" {{action "delete"}}><i class="icon-cancel"></i></button>
                     </td>
                 </tr>
             {{/each}}
