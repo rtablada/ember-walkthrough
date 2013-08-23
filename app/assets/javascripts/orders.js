@@ -29,14 +29,18 @@ set$(Orders, 'OrdersIndexRoute', Ember.Route.extend({
 }));
 set$(Orders, 'ItemsRoute', Ember.Route.extend({
   model: function (params) {
-    return get$(Orders, 'Item').createRecord({ order: get$(Orders, 'Order').find(get$(params, 'order_id')) });
+    return get$(Orders, 'Order').find(get$(params, 'order_id'));
   }
 }));
 set$(Orders, 'ItemsController', Ember.ObjectController.extend({
   newItem: function () {
-    get$(this, 'model').save();
-    get$(get$(get$(this, 'model'), 'order'), 'items').pushObject(get$(this, 'model'));
-    return this.transitionToRoute('orders.show', get$(get$(this, 'model'), 'order'));
+    set$(this, 'item', get$(Orders, 'Item').createRecord({
+      name: get$(this, 'name'),
+      orderId: get$(this, 'id')
+    }));
+    get$(this, 'item').save();
+    get$(get$(this, 'model'), 'items').pushObject(get$(this, 'item'));
+    return this.transitionToRoute('orders.show', get$(this, 'model'));
   }
 }));
 set$(Orders, 'OrderController', Ember.ObjectController.extend({
@@ -111,7 +115,4 @@ get$(DS, 'RESTAdapter').registerTransform('sqldate', {
   }
 });
 get$(DS, 'RESTAdapter').reopen({ namespace: 'api' });
-set$(Orders, 'Store', get$(DS, 'Store').extend({
-  revision: 12,
-  adapter: 'DS.RESTAdapter'
-}));
+set$(Orders, 'Store', get$(DS, 'Store').extend({ adapter: 'DS.RESTAdapter' }));

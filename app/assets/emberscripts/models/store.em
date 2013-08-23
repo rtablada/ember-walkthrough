@@ -8,5 +8,4 @@ DS.RESTAdapter.reopen
 	namespace: 'api'
 
 class Orders.Store extends DS.Store
-  revision: 12,
   adapter: 'DS.RESTAdapter'

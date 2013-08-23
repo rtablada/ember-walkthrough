@@ -1,5 +1,8 @@
 class Orders.ItemsController extends Ember.ObjectController
 	newItem: ->
-		@model.save()
-		@model.order.items.pushObject @model
-		@transitionToRoute 'orders.show', @model.order
+		@item = Orders.Item.createRecord
+			name: @name
+			orderId: @id
+		@item.save()
+		@model.items.pushObject @item
+		@transitionToRoute 'orders.show', @model
